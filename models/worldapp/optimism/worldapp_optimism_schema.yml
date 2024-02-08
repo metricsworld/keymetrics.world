@@ -9,7 +9,7 @@ models:
     description: "Actions made by WorldApp users"
     tests:
       - unique:
-          column_name: "(TX_HASH || '-' || TRACE_ID)"
+          column_name: "(TRANSACTION_HASH || '-' || TRACE_ID)"
     columns:
       - &BLOCK_TIMESTAMP
         name: BLOCK_TIMESTAMP
@@ -22,7 +22,7 @@ models:
         description: "unique hash of the trace"
       - &ACCOUNT
         name: ACCOUNT
-        description: "the account that executed the action"
+        description: "worldcoin safe account address"
       - &BUNDLER
         name: BUNDLER
         description: "the bundler of the action"
@@ -32,3 +32,17 @@ models:
       - &INPUT
         name: INPUT
         description: "the calldata of the action"
+
+  - name: worldapp_optimism_account_deployments
+    meta:
+      blockchain: optimism
+      sector: worldapp
+    description: "Deployments of worlcoin safe accounts"
+    tests:
+      - unique:
+          column_name: "(TRANSACTION_HASH || '-' || TRACE_ID)"
+    columns:
+      - *BLOCK_TIMESTAMP
+      - *TRANSACTION_HASH
+      - *TRACE_ID
+      - *ACCOUNT
