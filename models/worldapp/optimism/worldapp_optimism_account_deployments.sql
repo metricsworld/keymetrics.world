@@ -34,7 +34,6 @@ WHERE FROM_ADDRESS IN (
     '0xc5a53b78734284d683d623c5c06d2e646abcec3f',
     '0xc0edd4902879a7e85b4bd2dfe293dbec4d838c2d'
 )
-AND BLOCK_TIMESTAMP >= '2023-06-01'
 AND SELECTOR = '0x1688f0b9'
 AND ERROR IS NULL
 {% if not is_incremental() %}
