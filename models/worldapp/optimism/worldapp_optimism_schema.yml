@@ -1,0 +1,34 @@
+version: 2
+
+models:
+
+  - name: worldapp_optimism_actions
+    meta:
+      blockchain: optimism
+      sector: worldapp
+    description: "Actions made by WorldApp users"
+    tests:
+      - unique:
+          column_name: "(TX_HASH || '-' || TRACE_ID)"
+    columns:
+      - &BLOCK_TIMESTAMP
+        name: BLOCK_TIMESTAMP
+        description: "time when the block was mined"
+      - &TRANSACTION_HASH
+        name: TRANSACTION_HASH
+        description: "transaction hash of the bundle"
+      - &TRACE_ID
+        name: TRACE_ID
+        description: "unique hash of the trace"
+      - &ACCOUNT
+        name: ACCOUNT
+        description: "the account that executed the action"
+      - &BUNDLER
+        name: BUNDLER
+        description: "the bundler of the action"
+      - &TXN_TYPE
+        name: TXN_TYPE
+        description: "the type of action"
+      - &INPUT
+        name: INPUT
+        description: "the calldata of the action"
