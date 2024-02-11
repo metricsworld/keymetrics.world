@@ -14,6 +14,9 @@ models:
       - &BLOCK_TIMESTAMP
         name: BLOCK_TIMESTAMP
         description: "time when the block was mined"
+      - &BLOCK_DATE
+        name: BLOCK_DATE
+        description: "day when the block was mined"
       - &TRANSACTION_HASH
         name: TRANSACTION_HASH
         description: "transaction hash of the bundle"
@@ -43,6 +46,7 @@ models:
           column_name: "(TRANSACTION_HASH || '-' || TRACE_ID)"
     columns:
       - *BLOCK_TIMESTAMP
+      - *BLOCK_DATE
       - *TRANSACTION_HASH
       - *TRACE_ID
       - *ACCOUNT
